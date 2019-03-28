@@ -28,14 +28,15 @@ concentrations[concentrations <= 0] = np.nan
 z = concentrations.transpose()
 print(z)
 
-plt.figure(figsize=(4.5, 9), dpi=300)
+plt.figure(figsize=(9, 4.5), dpi=300)
 levels = np.logspace(np.log10(np.nanmin(z)), np.log10(np.nanmax(z)), 1000)
 locator = ticker.LogLocator(base=10)
 
 plt.contourf(times, diameter, z, levels, locator=locator, cmap = cm.jet)
-plt.colorbar(plot, format='%.e', ticks=locator)
+plt.colorbar(format='%.e', ticks=locator)
 plt.ylim((10, 1e4))
 plt.yscale('log')
 plt.ylabel("diameter [nm]")
 plt.xlabel("time [seconds")
+#plt.show()
 plt.savefig("20150628_ground_contour.png")
