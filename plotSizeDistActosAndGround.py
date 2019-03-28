@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm, ticker, colors
 from matplotlib.colors import LogNorm
 
-f = "20150628_ground_aps+smps_merged.dat"
+f = "20150617_ground_aps+smps_merged.dat"
 
 table = np.genfromtxt(f, delimiter="\t")
 
@@ -32,11 +32,11 @@ plt.figure(figsize=(9, 4.5), dpi=300)
 levels = np.logspace(np.log10(np.nanmin(z)), np.log10(np.nanmax(z)), 1000)
 locator = ticker.LogLocator(base=10)
 
-plt.contourf(times, diameter, z, levels, locator=locator, cmap = cm.jet)
+plt.contourf(times, diameter, z, levels, locator=locator, cmap=cm.jet)
 plt.colorbar(format='%.e', ticks=locator)
 plt.ylim((10, 1e4))
 plt.yscale('log')
 plt.ylabel("diameter [nm]")
 plt.xlabel("time [seconds")
 #plt.show()
-plt.savefig("20150628_ground_contour.png")
+plt.savefig("20150617_ground_contour.png")
